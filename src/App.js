@@ -1,12 +1,26 @@
-import { ChakraProvider, Text } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './components/ColorModeSwitcher';
+import { ChakraProvider } from '@chakra-ui/react';
+import {
+	createBrowserRouter,
+	createRoutesFromElements,
+	Route,
+	RouterProvider
+} from 'react-router-dom';
+import RootLayout from './layouts/RootLayout';
+import Home from './pages/Home';
 import theme from './styles';
+
+const router = createBrowserRouter(
+	createRoutesFromElements(
+		<Route path='/' element={<RootLayout />}>
+			<Route index element={<Home />} />
+		</Route>
+	)
+);
 
 function App() {
 	return (
 		<ChakraProvider theme={theme}>
-			<ColorModeSwitcher justifySelf='flex-end' />
-			<Text as='h1'>Hello</Text>
+			<RouterProvider router={router} />
 		</ChakraProvider>
 	);
 }
