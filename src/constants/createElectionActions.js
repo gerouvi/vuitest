@@ -1,0 +1,18 @@
+export const CREATE_ELECTION_ACTIONS = {
+  ELECTION_TITLE: 'election_title_changed',
+  ELECTION_DESCRIPTION: 'election_description_changed',
+  ADD_ADDRESS: 'add_address',
+  DELETE_ADDRESS: 'delete_address',
+  ADDRESS: 'address_changed',
+  ADDRESS_WEIGHT: 'address_weight_changed',
+  ADD_QUESTION: 'add_question',
+  DELETE_QUESTION: 'delete_question',
+  TITLE: 'title_changed',
+  SUBTITLE: 'subtitle_changed',
+  ADD_OPTION: 'add_option',
+  DELETE_OPTION: 'delete_option',
+  OPTION: 'option_changed',
+  WEIGHTED_VOTING_ACTIVE: 'weighted_voting_active_changed',
+  LOADING: 'loading_changed',
+  ERROR: 'error_changed',
+};

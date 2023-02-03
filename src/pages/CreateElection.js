@@ -1,4 +1,6 @@
+import CreateElectionWrapper from '../components/createElection/CreateElectionWrapper';
+
 const CreateElection = () => {
-	return <h3>CreateElection</h3>;
+	return <CreateElectionWrapper />;
 };
 export default CreateElection;

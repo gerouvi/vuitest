@@ -41,7 +41,7 @@ const RootLayout = () => {
 			<Box as='main' marginTop='3em'>
 				<Outlet />
 			</Box>
-			<Flex as='footer' justifyContent='center' marginTop='auto' pb={4}>
+			<Flex as='footer' justifyContent='center' marginTop='auto' py={10}>
 				<PoweredIcon />
 			</Flex>
 		</Flex>
