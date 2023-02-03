@@ -1,4 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { NavLink, Outlet } from 'react-router-dom';
 import { ColorModeSwitcher } from '../components/buttons/ColorModeSwitcher';
 import PoweredIcon from '../components/icons/PoweredIcon';
@@ -33,6 +34,7 @@ const RootLayout = () => {
 					</Box>
 					<NavLink to='createelection'>Create Election</NavLink>
 					<NavLink to='myelections'>My elections</NavLink>
+					<ConnectButton accountStatus='avatar' chainStatus='icon' />
 					<ColorModeSwitcher mb={1} size='sm' justifySelf='flex-end' />
 				</Flex>
 			</Box>

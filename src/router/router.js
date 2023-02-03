@@ -3,10 +3,10 @@ import {
 	createRoutesFromElements,
 	Route
 } from 'react-router-dom';
-import RootLayout from './layouts/RootLayout';
-import CreateElection from './pages/CreateElection';
-import Home from './pages/Home';
-import MyElections from './pages/MyElections';
+import RootLayout from '../layouts/RootLayout';
+import CreateElection from '../pages/CreateElection';
+import Home from '../pages/Home';
+import MyElections from '../pages/MyElections';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
