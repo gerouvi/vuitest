@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { ColorModeSwitcher } from '../components/buttons/ColorModeSwitcher';
+import PoweredIcon from '../components/icons/PoweredIcon';
 import VocdoniIcon from '../components/icons/VocdoniIcon';
 
 const RootLayout = () => {
@@ -38,6 +39,9 @@ const RootLayout = () => {
 			<Box as='main' marginTop='3em'>
 				<Outlet />
 			</Box>
+			<Flex as='footer' justifyContent='center' marginTop='auto' pb={4}>
+				<PoweredIcon />
+			</Flex>
 		</Flex>
 	);
 };
