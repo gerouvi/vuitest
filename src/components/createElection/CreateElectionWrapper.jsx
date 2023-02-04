@@ -18,6 +18,7 @@ const CreateElectionWrapper = () => {
 		'0x85338566e3bCd36c28f47e92423E9672770674cD',
 		getCreateElectionInitialValues
 	);
+
 	const {
 		isOpen: isOpenLoading,
 		onOpen: onOpenLoading,
