@@ -1,6 +1,5 @@
 import {
 	Modal,
-	ModalBody,
 	ModalCloseButton,
 	ModalContent,
 	ModalOverlay
@@ -22,12 +21,10 @@ const CustomModal = ({ isOpen, onClose, modal }) => (
 		<ModalOverlay />
 		<ModalContent>
 			<ModalCloseButton />
-			<ModalBody>
-				{modal === 'warning' && <Warning />}
-				{modal === 'success' && <Success />}
-				{modal === 'loading' && <Loading />}
-				{modal === 'error' && <Error />}
-			</ModalBody>
+			{modal === 'warning' && <Warning />}
+			{modal === 'success' && <Success />}
+			{modal === 'loading' && <Loading />}
+			{modal === 'error' && <Error />}
 		</ModalContent>
 	</Modal>
 );

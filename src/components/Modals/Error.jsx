@@ -1,5 +1,5 @@
 import { WarningTwoIcon } from '@chakra-ui/icons';
-import { Flex, Icon, Text } from '@chakra-ui/react';
+import { Icon, ModalBody, Text } from '@chakra-ui/react';
 
 // const Error = ({ errors }) => (
 // 	<List>
@@ -19,18 +19,14 @@ import { Flex, Icon, Text } from '@chakra-ui/react';
 // );
 
 const Error = () => (
-	<Flex
-		flexDirection='column'
-		justifyContent='center'
-		alignItems='center'
-		gap={2}
-		padding={4}
-	>
-		<Icon as={WarningTwoIcon} color='red.8' boxSize={6} />
-		<Text color='red.8' mt={1}>
-			Working in errors, maybe you left some input empty
-		</Text>
-	</Flex>
+	<>
+		<ModalBody>
+			<Icon as={WarningTwoIcon} color='red.8' boxSize={6} />
+			<Text color='red.8' mt={1}>
+				Working in errors, maybe you left some input empty
+			</Text>
+		</ModalBody>
+	</>
 );
 
 export default Error;

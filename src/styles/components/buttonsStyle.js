@@ -3,7 +3,9 @@ import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 const vocdoniSolid = defineStyle({
 	bg: 'green.vocdoni',
 	color: 'green.8',
-
+	_active: {
+		fontSize: '0.8em'
+	},
 	_hover: {
 		bg: 'green.8',
 		color: 'green.vocdoni'
