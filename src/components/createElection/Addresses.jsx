@@ -10,26 +10,26 @@ import FormSection from '../forms/FormSection';
 import InputIcon from '../forms/InputIcon';
 import InputText from '../forms/InputText';
 
-const Addresses = ({ election, dispatchElection }) => (
+const Addresses = ({ createElection, dispatchCreateElection }) => (
 	<FormSection>
 		<Flex flexDirection='column' justifyContent='start' gap={3}>
 			<Text>User Address</Text>
 			<Flex justifyContent='space-between' alignItems='end'>
-				<Text isTruncated>{election.addresses[0].address}</Text>
-				{election.weightedVoting.active && (
+				<Text isTruncated>{createElection.addresses[0].address}</Text>
+				{createElection.weightedVoting.active && (
 					<InputIcon
 						type='number'
 						icon='%'
-						value={election.addresses[0].weight}
+						value={createElection.addresses[0].weight}
 						marginRight='48px'
 						onChange={e =>
-							dispatchElection(addressWeightChanged(0, e.target.value))
+							dispatchCreateElection(addressWeightChanged(0, e.target.value))
 						}
 					/>
 				)}
 			</Flex>
 		</Flex>
-		{election.addresses.map((address, index) => {
+		{createElection.addresses.map((address, index) => {
 			if (index === 0) return null;
 			return (
 				<Flex
@@ -42,16 +42,18 @@ const Addresses = ({ election, dispatchElection }) => (
 						label={`Address ${index + 1}`}
 						value={address.address}
 						onChange={e =>
-							dispatchElection(addressChanged(index, e.target.value))
+							dispatchCreateElection(addressChanged(index, e.target.value))
 						}
 					/>
-					{election.weightedVoting.active && (
+					{createElection.weightedVoting.active && (
 						<InputIcon
 							type='number'
 							icon='%'
-							value={election.addresses[index].weight}
+							value={createElection.addresses[index].weight}
 							onChange={e =>
-								dispatchElection(addressWeightChanged(index, e.target.value))
+								dispatchCreateElection(
+									addressWeightChanged(index, e.target.value)
+								)
 							}
 						/>
 					)}
@@ -63,7 +65,7 @@ const Addresses = ({ election, dispatchElection }) => (
 							color: 'red.8'
 						}}
 						icon={<DeleteIcon />}
-						onClick={() => dispatchElection(deleteAddress(index))}
+						onClick={() => dispatchCreateElection(deleteAddress(index))}
 					/>
 				</Flex>
 			);
@@ -74,7 +76,7 @@ const Addresses = ({ election, dispatchElection }) => (
 			aria-label='add address'
 			icon={<AddIcon />}
 			variant='iconButtonVocdoni'
-			onClick={() => dispatchElection(addAddress())}
+			onClick={() => dispatchCreateElection(addAddress())}
 		/>
 	</FormSection>
 );

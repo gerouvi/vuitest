@@ -16,7 +16,6 @@ const iconButtonVocdoni = defineStyle(props => ({
 	borderRadius: '50%',
 	border: '1px solid ',
 	borderColor: 'green.vocdoni',
-
 	_hover: {
 		bg: props.colorMode === 'light' ? 'green.8' : 'green.vocdoni',
 		color: props.colorMode === 'light' ? 'green.vocdoni' : 'green.8'

@@ -1,42 +1,28 @@
 import { Box } from '@chakra-ui/react';
 import {
-	electionDescriptionChanged,
-	electionTitleChanged
+	descriptionChanged,
+	titleChanged
 } from '../../lib/actions/createElectionActions';
 import FormSection from '../forms/FormSection';
 import InputText from '../forms/InputText';
 
-const Description = ({ election, dispatchElection }) => (
+const Description = ({ createElection, dispatchCreateElection }) => (
 	<Box variant='form_section'>
 		<FormSection>
 			<InputText
 				label='Election title'
-				value={election.electionTitle}
-				onChange={e => dispatchElection(electionTitleChanged(e.target.value))}
+				value={createElection.title}
+				onChange={e => dispatchCreateElection(titleChanged(e.target.value))}
 			/>
 			<InputText
 				label='Election description'
-				value={election.electionDescription}
+				value={createElection.description}
 				onChange={e =>
-					dispatchElection(electionDescriptionChanged(e.target.value))
+					dispatchCreateElection(descriptionChanged(e.target.value))
 				}
 			/>
 		</FormSection>
 	</Box>
-	// <FormSection>
-	//   <InputText
-	//     label="Election title"
-	//     value={election.electionTitle}
-	//     onChange={e => dispatchElection(electionTitleChanged(e.target.value))}
-	//   />
-	//   <InputText
-	//     label="Election description"
-	//     value={election.electionDescription}
-	//     onChange={e =>
-	//       dispatchElection(electionDescriptionChanged(e.target.value))
-	//     }
-	//   />
-	// </FormSection>
 );
 
 export default Description;

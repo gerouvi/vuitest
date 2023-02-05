@@ -38,7 +38,7 @@ const RootLayout = () => {
 					<ColorModeSwitcher mb={1} size='sm' justifySelf='flex-end' />
 				</Flex>
 			</Box>
-			<Box as='main' marginTop='3em'>
+			<Box as='main' marginTop='2em'>
 				<Outlet />
 			</Box>
 			<Flex as='footer' justifyContent='center' marginTop='auto' py={10}>

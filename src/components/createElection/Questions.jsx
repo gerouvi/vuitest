@@ -3,17 +3,17 @@ import { Flex, IconButton, Text } from '@chakra-ui/react';
 import {
 	addOption,
 	deleteQuestion,
-	subtitleChanged,
-	titleChanged
+	questionSubtitleChanged,
+	questionTitleChanged
 } from '../../lib/actions/createElectionActions';
 import FormSection from '../forms/FormSection';
 import InputText from '../forms/InputText';
 import Question from './Question';
 
-const Questions = ({ election, dispatchElection }) => {
+const Questions = ({ createElection, dispatchCreateElection }) => {
 	return (
 		<>
-			{election.questions.map((question, index) => (
+			{createElection.questions.map((question, index) => (
 				<FormSection key={index}>
 					<Flex justifyContent='space-between' alignItems='center'>
 						<Text>{`Question ${index + 1}`}</Text>
@@ -25,21 +25,25 @@ const Questions = ({ election, dispatchElection }) => {
 								color: 'red.8'
 							}}
 							icon={<DeleteIcon />}
-							onClick={() => dispatchElection(deleteQuestion(index))}
+							onClick={() => dispatchCreateElection(deleteQuestion(index))}
 						/>
 					</Flex>
 					<InputText
 						label='Title'
 						value={question.questionTitle}
 						onChange={e =>
-							dispatchElection(titleChanged(index, e.target.value))
+							dispatchCreateElection(
+								questionTitleChanged(index, e.target.value)
+							)
 						}
 					/>
 					<InputText
 						label='Description'
 						value={question.questionDescription}
 						onChange={e =>
-							dispatchElection(subtitleChanged(index, e.target.value))
+							dispatchCreateElection(
+								questionSubtitleChanged(index, e.target.value)
+							)
 						}
 					/>
 					{question.options.map((option, i) => (
@@ -48,7 +52,7 @@ const Questions = ({ election, dispatchElection }) => {
 							index={index}
 							i={i}
 							option={option}
-							dispatchElection={dispatchElection}
+							dispatchCreateElection={dispatchCreateElection}
 						/>
 					))}
 					<IconButton
@@ -57,7 +61,7 @@ const Questions = ({ election, dispatchElection }) => {
 						aria-label='add address'
 						icon={<AddIcon />}
 						variant='iconButtonVocdoni'
-						onClick={() => dispatchElection(addOption(index))}
+						onClick={() => dispatchCreateElection(addOption(index))}
 					/>
 				</FormSection>
 			))}

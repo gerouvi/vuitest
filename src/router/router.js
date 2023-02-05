@@ -3,8 +3,9 @@ import {
 	createRoutesFromElements,
 	Route
 } from 'react-router-dom';
+import CreateElection from '../components/createElection/CreateElection';
+import CreateElectionError from '../components/createElection/CreateElectionError';
 import RootLayout from '../layouts/RootLayout';
-import CreateElection from '../pages/CreateElection';
 import Home from '../pages/Home';
 
 import MyElections from '../pages/MyElections';
@@ -16,7 +17,11 @@ const router = createBrowserRouter(
 		<Route path='/' element={<RootLayout />}>
 			<Route index element={<Home />} />
 			<Route element={<ProtectedRoutes />}>
-				<Route path='createelection' element={<CreateElection />} />
+				<Route
+					path='createelection'
+					element={<CreateElection />}
+					errorElement={<CreateElectionError />}
+				/>
 				<Route path='myelections' element={<MyElections />} />
 			</Route>
 

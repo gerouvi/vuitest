@@ -19,7 +19,8 @@
 		"react-router-dom": "^6.8.0",
 		"react-scripts": "5.0.1",
 		"wagmi": "^0.9.6",
-		"web-vitals": "^2.1.4"
+		"web-vitals": "^2.1.4",
+		"@vocdoni/sdk": "^0.0.2-alpha"
 	},
 	"scripts": {
 		"start": "react-scripts start",

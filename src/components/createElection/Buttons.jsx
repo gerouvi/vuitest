@@ -1,32 +1,15 @@
 import { Button, Flex } from '@chakra-ui/react';
-import {
-	addQuestion,
-	loadingChanged
-} from '../../lib/actions/createElectionActions';
+import { addQuestion } from '../../lib/actions/createElectionActions';
 
-const Buttons = ({
-	election,
-	dispatchElection,
-	onOpenLoading,
-	onCloseLoading,
-	onOpenError,
-	sendQuestion
-}) => (
+const Buttons = ({ handleSendQuestion, dispatchCreateElection }) => (
 	<Flex direction='column' gap={3}>
 		<Button
 			variant='vocdoniSolid'
-			onClick={() => dispatchElection(addQuestion())}
+			onClick={() => dispatchCreateElection(addQuestion())}
 		>
 			Add Question
 		</Button>
-		<Button
-			variant='vocdoniSolid'
-			onClick={() => {
-				onOpenLoading();
-				dispatchElection(loadingChanged());
-				sendQuestion(election, dispatchElection, onCloseLoading, onOpenError);
-			}}
-		>
+		<Button variant='vocdoniSolid' onClick={handleSendQuestion}>
 			Create Election
 		</Button>
 	</Flex>

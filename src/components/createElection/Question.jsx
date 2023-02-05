@@ -6,13 +6,15 @@ import {
 } from '../../lib/actions/createElectionActions';
 import InputText from '../forms/InputText';
 
-const Question = ({ index, i, option, dispatchElection }) => (
+const Question = ({ index, i, option, dispatchCreateElection }) => (
 	<Flex justifyContent='space-between' alignItems='center' gap={4}>
 		<InputText
 			label={`Option ${i + 1}`}
 			variant='inputText'
 			value={option}
-			onChange={e => dispatchElection(optionChanged(index, i, e.target.value))}
+			onChange={e =>
+				dispatchCreateElection(optionChanged(index, i, e.target.value))
+			}
 		/>
 
 		<IconButton
@@ -23,7 +25,7 @@ const Question = ({ index, i, option, dispatchElection }) => (
 				color: 'red.8'
 			}}
 			icon={<DeleteIcon />}
-			onClick={() => dispatchElection(deleteOption(index, i))}
+			onClick={() => dispatchCreateElection(deleteOption(index, i))}
 		/>
 	</Flex>
 );
