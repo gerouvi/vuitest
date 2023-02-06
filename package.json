@@ -20,7 +20,7 @@
 		"react-scripts": "5.0.1",
 		"wagmi": "^0.9.6",
 		"web-vitals": "^2.1.4",
-		"@vocdoni/sdk": "^0.0.2-alpha"
+		"@vocdoni/sdk": "^0.0.3-alpha"
 	},
 	"scripts": {
 		"start": "react-scripts start",
