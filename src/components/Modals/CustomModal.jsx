@@ -10,7 +10,7 @@ import Loading from '../Modals/Loading';
 import Success from '../Modals/Success';
 import Warning from '../Modals/Warning';
 
-const CustomModal = ({ isOpen, onClose, modal }) => (
+const CustomModal = ({ isOpen, onClose, modal, id }) => (
 	<Modal
 		variant={modal}
 		isOpen={isOpen}
@@ -22,7 +22,7 @@ const CustomModal = ({ isOpen, onClose, modal }) => (
 		<ModalContent>
 			<ModalCloseButton />
 			{modal === 'warning' && <Warning />}
-			{modal === 'success' && <Success />}
+			{modal === 'success' && <Success id={id} />}
 			{modal === 'loading' && <Loading />}
 			{modal === 'error' && <Error />}
 		</ModalContent>

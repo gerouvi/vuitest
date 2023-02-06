@@ -30,16 +30,23 @@ const CreateElection = () => {
 
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
-	const [modal, setModal] = useState('');
+	const [modalType, setModalType] = useState();
+
+	const [id, setId] = useState('');
 
 	useEffect(() => {
-		if (!modal) return;
+		if (!modalType) return;
 		onOpen();
-	}, [modal]);
+	}, [modalType]);
 
 	return (
 		<Center flexDirection='column'>
-			<CustomModal isOpen={isOpen} onClose={onClose} modal={modal} />
+			<CustomModal
+				isOpen={isOpen}
+				onClose={onClose}
+				modal={modalType}
+				id={id}
+			/>
 
 			<FormWrapper width='90vw' maxWidth='650px'>
 				<fieldset>
@@ -64,10 +71,9 @@ const CreateElection = () => {
 					/>
 					<Buttons
 						dispatchCreateElection={dispatchCreateElection}
-						handleSendQuestion={() => {
-							setModal('loading');
-							handleSendQuestion(createElection, signer, setModal);
-						}}
+						handleSendQuestion={() =>
+							handleSendQuestion(createElection, signer, setModalType, setId)
+						}
 					/>
 				</fieldset>
 			</FormWrapper>
@@ -75,17 +81,30 @@ const CreateElection = () => {
 	);
 };
 
-const handleSendQuestion = async (createElection, signer, setModal) => {
-	if (createElection.weightedVoting.active) return setModal('warning');
+const handleSendQuestion = async (
+	createElection,
+	signer,
+	setModalType,
+	setId
+) => {
+	setModalType('loading');
+	if (createElection.weightedVoting.active) return setModalType('warning');
 
 	try {
 		const client = getClient(signer);
+
 		await updateBalance(client);
+
 		const census = await getCensus(signer, createElection.addresses);
-		await createElectionFn(createElection, census, client);
-		setModal('success');
+
+		const id = await createElectionFn(createElection, census, client);
+
+		console.log(id);
+		setId(id);
+		setModalType('success');
 	} catch (err) {
-		setModal('error');
+		console.log(err.message);
+		setModalType('error');
 	}
 };
 

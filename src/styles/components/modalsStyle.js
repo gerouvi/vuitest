@@ -28,7 +28,7 @@ const loading = definePartsStyle({
 const success = definePartsStyle({
 	dialog: {
 		borderRadius: '12px',
-		width: '450px',
+		minWidth: '650px',
 		display: 'flex',
 		flexDirection: 'column',
 
@@ -42,7 +42,8 @@ const success = definePartsStyle({
 		justifyContent: 'center',
 		alignItems: 'center',
 		gap: '10px',
-		paddingY: '30px'
+		paddingY: '30px',
+		color: 'green.vocdoni'
 	}
 });
 const warning = definePartsStyle({

@@ -62,5 +62,5 @@ export const createElectionFn = async (createElection, census, client) => {
 	});
 	addQuestions(election, createElection.questions);
 
-	await client.createElection(election);
+	return await client.createElection(election);
 };
